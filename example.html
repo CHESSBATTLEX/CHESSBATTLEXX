@@ -120,12 +120,14 @@ img.tbBtn {
 <body onload="initChess();">
 <h1> WELCOME TO CHESS BATTLE</h1>
 
-document.getElementById('connect-button').addEventListener('click', event => {
+<button id=connect-button > Connect Metamask</button>
+	
+</script></button>document.getElementById('connect-button').addEventListener('click', event => {
   let account;
   ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
     account = accounts[0];
     console.log(account);
-
+</script>
   });
 });
 
