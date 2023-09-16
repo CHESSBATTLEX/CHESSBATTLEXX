@@ -120,16 +120,23 @@ img.tbBtn {
 <body onload="initChess();">
 <h1> WELCOME TO CHESS BATTLE</h1>
 
-<button class="favorite styled" type="button">Connectwallet</button>
-	
-</script></button>document.getElementById('Connectwallet').addEventListener('click', event => {
+<html>
+  <head>
+    <meta charset=UTF-8" />
+    <link rel="stylesheet" type=text/css" href="style.css" />
+   </head> 
+  <body>
+   
+  <button id="connect-button"> Connect Metamask</button>
+<script>
+document.getElementById('favoritestyled').addEventListener('click', event => {
   let account;
   ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
     account = accounts[0];
     console.log(account);
-</script>
-  });
-});
+<script>
+  <body>
+    <html>
 
 	
 <p>Only for 3D view: use the "+" and "-" keys to zoom; use the numpad to play with keyboard.</p>
