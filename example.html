@@ -120,9 +120,14 @@ img.tbBtn {
 <body onload="initChess();">
 <h1> WELCOME TO CHESS BATTLE</h1>
 
-<a href="https://metamask.io/">
-<button>Connect Wallet</button>
-</a> 
+document.getElementById('connect-button').addEventListener('click', event => {
+  let account;
+  ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
+    account = accounts[0];
+    console.log(account);
+
+  });
+});
 
 	
 <p>Only for 3D view: use the "+" and "-" keys to zoom; use the numpad to play with keyboard.</p>
