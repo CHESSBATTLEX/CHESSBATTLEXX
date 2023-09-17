@@ -117,11 +117,19 @@ img.tbBtn {
 </style>
 </head>
 
-<body onload="initChess();">
-<h1 style="text-align:center;">WELCOME TO CHESS BATTLE</h1>
-   <!-- Bouton Metamask -->
+<<body onload="initChess();">
+    <h1 style="text-align:center;">WELCOME TO CHESS BATTLE</h1>
+    
+    <!-- Bouton Metamask -->
     <button id="connect-button">Connect Metamask</button>
-
+    
+    <!-- Champ pour l'adresse ERC-20 de l'adversaire -->
+    <div>
+        <label for="erc-address">Adresse ERC-20 de votre adversaire:</label>
+        <input type="text" id="erc-address" placeholder="Saisissez l'adresse ici" />
+        <button id="invitation-button" onclick="sendInvitation();">Invitation envoyée</button>
+    </div>
+    
     <script>
         document.getElementById('connect-button').addEventListener('click', event => {
             let account;
@@ -130,7 +138,19 @@ img.tbBtn {
                 console.log(account);
             });
         });
+
+        function sendInvitation() {
+            // Récupérez l'adresse ERC-20 saisie par l'utilisateur
+            const ercAddress = document.getElementById('erc-address').value;
+            
+            // Vous pouvez ajouter votre logique d'envoi d'invitation ici
+            // Par exemple, envoyer une transaction Ethereum à l'adresse ercAddress
+            
+            // Mettez à jour le texte du bouton "Invitation envoyée" si nécessaire
+            document.getElementById('invitation-button').textContent = "Invitation envoyée!";
+        }
     </script>
+</body>
 
 <form name="chessCtrl1" onsubmit="return(false);">
 <p style="text-align:center;">[&nbsp;<input id="useAIAsk" name="useAI" type="checkbox" onclick="chess.useAI(this.checked);" checked /> <label for="useAIAsk">Play with your friend</label> | Promotion to: <select onchange="chess.setPromotion(this.selectedIndex);" name="selPromo"><option>Queen</option><option>Rook</option><option>Bishop</option><option>Knight</option></select> | <input type="button" name="strtBtn" value="New game" onclick="chess.organize(this.form.plyerClr1[1].checked);" /> (Human: <input type="radio" name="plyerClr1" id="white1" checked /> <label for="white1">white</label> <input type="radio" name="plyerClr1" id="black1" /> <label for="black1">black</label>) |<input type="text" name="plyDepthCtrl" value="0" size="2" onkeypress=";if(event.keyCode===13&&chess.setPlyDepth(this.value)){alert('Ply depth setted.' + (Number(this.value) > 2 ? '\nAttention! The game could be very slow.' : ' Good game :)'));}" />&nbsp;]</p>
